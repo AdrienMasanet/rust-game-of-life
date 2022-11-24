@@ -5,7 +5,6 @@ const GRID_WIDTH: i32 = 400; // Grid width in cells
 const GRID_HEIGHT: i32 = 200; // Grid height in cells
 const TIME_TO_SLEEP_BETWEEN_CYCLES: u64 = 0; // Time to sleep between cycles in milliseconds, can be used to slow down the simulation if it's running too fast
 
-// Importing the window_conf function from window.rs for the window configuration
 mod cell;
 mod grid;
 mod window;
