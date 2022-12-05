@@ -37,6 +37,9 @@ impl Grid {
 
         let mut cells_left_to_make_alive: usize = CELL_COUNT_START;
 
+        // Seeds the pseudo-random number generator with the current time to make the random numbers different every time the program runs
+        rand::srand(macroquad::miniquad::date::now() as _);
+
         while cells_left_to_make_alive > 0 {
             // Generate a random x and y position for the cell
             let x: i32 = rand::gen_range(0, GRID_WIDTH);
