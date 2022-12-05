@@ -1,9 +1,9 @@
-const CELL_SIZE: usize = 5; // Cell size in pixels
+const CELL_SIZE: usize = 10; // Cell size in pixels
 const CELL_SIZE_AS_F32: f32 = CELL_SIZE as f32;
-const CELL_COUNT_START: usize = 8000; // Number of cells to start with
-const GRID_WIDTH: i32 = 400; // Grid width in cells
-const GRID_HEIGHT: i32 = 200; // Grid height in cells
-const TIME_TO_SLEEP_BETWEEN_CYCLES: u64 = 0; // Time to sleep between cycles in milliseconds, can be used to slow down the simulation if it's running too fast
+const CELL_COUNT_START: usize = 50; // Number of cells to start with
+const GRID_WIDTH: i32 = 10; // Grid width in cells
+const GRID_HEIGHT: i32 = 10; // Grid height in cells
+const TIME_TO_SLEEP_BETWEEN_CYCLES: u64 = 5000; // Time to sleep between cycles in milliseconds, can be used to slow down the simulation if it's running too fast
 
 mod cell;
 mod grid;
@@ -25,8 +25,8 @@ async fn main() {
 
         grid.update();
 
-        thread::sleep(time::Duration::from_millis(TIME_TO_SLEEP_BETWEEN_CYCLES));
+        next_frame().await;
 
-        next_frame().await
+        thread::sleep(time::Duration::from_millis(TIME_TO_SLEEP_BETWEEN_CYCLES));
     }
 }
